@@ -8,5 +8,9 @@ function book(title,author,pages,activity){
 }
 
 function addBookToLibrary(){
-
+    
 }
+
+let b1 = new book('xxx','yyy',195,'read')
+
+console.log(b1);
