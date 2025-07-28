@@ -50,7 +50,7 @@ nav a{
 }
 
 [src$='.svg']{
-    padding-left: 5px;
+    padding-left: 5px   ;
     width: 24px;
     height: 24px;
     position: absolute;
@@ -59,4 +59,14 @@ nav a{
 .header button{
     width: 42px;
     height: 28px;
+}
+
+.hero_section{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.hero_section img{
+    height: 400px;
 }
