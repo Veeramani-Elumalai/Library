@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" differ></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
         <div class="container">
@@ -20,10 +20,11 @@
                     <a href="">READED</a>
                     <a href="">UNREADED</a>
                 </nav>
-                <button class="add_book">ADD</button>
+                <button id="add_book" onclick="userInput()">ADD</button>
+                
                 <div>
                     <dialog id="book_input">
-                        <form action="get">
+                        <form action="get" method="dialog">
                             <div>
                                 <label for="title">Book Title</label>
                                 <input type="text" id="title">
@@ -36,7 +37,8 @@
                                 <label for="pages">Pages</label>
                                 <input type="number" id="pages">
                             </div>
-                            <button>Add Book</button>
+                            <button type="submit">Add Book</button>
+                            <button type="button" onclick="bookInput.close()">Close</button>
                         </form>
                     </dialog>
                 </div>
