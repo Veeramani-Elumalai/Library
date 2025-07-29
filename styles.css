@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* Header section */
+
 .logo{
     font-size: 28px;
     font-weight: bolder;
@@ -61,6 +63,8 @@ nav a{
     height: 28px;
 }
 
+/* Hero section */
+
 .hero_section{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -104,6 +108,7 @@ nav a{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 100px   ;
-    
+    margin-top: 100px;
 }
+
+/* Dialog box*/
