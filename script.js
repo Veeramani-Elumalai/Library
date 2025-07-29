@@ -35,27 +35,39 @@ function displayBooks(){
         const bookCard = document.createElement('div'); // One card per book
         bookCard.classList.add('book');
 
-        const disImage = document.createElement("img");
+        const disImage = document.createElement("img"); //Creates new image
         disImage.src = "imgs/ATOMIC_HABITS.png";
 
-        const disTitle = document.createElement('h4');
+        const disTitle = document.createElement('h4'); //Creates new H4 element
         disTitle.textContent = book.title;
 
-        const disAuthor = document.createElement('p');
+        const disAuthor = document.createElement('p'); //Creates new P element for author
         disAuthor.textContent = book.author;
 
-        const disPages = document.createElement('p');
+        const disPages = document.createElement('p'); //Creates new P element for pages
         disPages.textContent = `${book.pages} pages`;
 
-        const disList = document.createElement()
+        const statusSelect = document.createElement('select'); //Creates new select element
+
+        const readedOption = document.createElement('option'); //Creates new option read
+        readedOption.value = 'readed';
+        readedOption.textContent = 'Readed';
+
+        const unreadedOption = document.createElement('option'); //Creates new option read
+        unreadedOption.value = 'unreaded';
+        unreadedOption.textContent = 'Unreaded';
+
+        statusSelect.appendChild(readedOption);
+        statusSelect.appendChild(unreadedOption);  //Appending options into select
 
         bookCard.appendChild(disImage);
         bookCard.appendChild(disTitle);
         bookCard.appendChild(disAuthor);
         bookCard.appendChild(disPages);
+        bookCard.appendChild(statusSelect); // Appending All elements into bookCard
 
-        container.appendChild(bookCard);
-    });
+        container.appendChild(bookCard);  //Last Append
+    }); 
 }
 
 function userInput(){
