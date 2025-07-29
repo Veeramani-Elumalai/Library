@@ -94,3 +94,8 @@ nav a{
 .rel_books{
     text-align: center;
 }
+
+.book img{
+    width: 130px;
+    height: 150px;
+}
