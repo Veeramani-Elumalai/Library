@@ -22,7 +22,7 @@ formData.addEventListener('submit',function(event){
 
     myLibrary.push(newBook)
 
-    console.log(myLibrary);
+    displayBooks();
 })
 
 //Functionality to create new book image
