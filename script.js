@@ -17,6 +17,12 @@ formData.addEventListener('submit',function(event){
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
+
+    const newBook = new book(title, author, pages, true);
+
+    myLibrary.push(newBook)
+
+    console.log(myLibrary);
 })
 
 function addBookToLibrary(){
