@@ -112,3 +112,14 @@ nav a{
 }
 
 /* Dialog box*/
+
+dialog{
+    width: 50vw;
+    height: 50vh;
+    justify-self: center;
+    align-self: center;
+    border: 1px solid gray;
+    padding: 30px;
+    font-size: 22px;
+    background-color: rgb(255, 255, 255);
+}
