@@ -1,21 +1,30 @@
 const myLibrary = [];
 const addBook = document.getElementById('add_book');
 const bookInput = document.getElementById('book_input');
+const formData = document.querySelector('form');
 
-function book(title,author,pages,activity){
+function book(title,author,pages){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.activity = activity;
 }
 
+//User input function
+
+formData.addEventListener('submit',function(event){
+    event.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+})
+
 function addBookToLibrary(){
-   // addBook.addEventListener('click',function(){
-   //     bookInput.showModal;            
-  //  });
-    
+
 }
 
 function userInput(){
     bookInput.showModal();
 }
+
+console.log(title);
