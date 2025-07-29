@@ -40,6 +40,7 @@ function displayBooks(){
 
         const disTitle = document.createElement('h4'); //Creates new H4 element
         disTitle.textContent = book.title;
+        disTitle.id = crypto.randomUUID();
 
         const disAuthor = document.createElement('p'); //Creates new P element for author
         disAuthor.textContent = book.author;
@@ -73,3 +74,4 @@ function displayBooks(){
 function userInput(){
     bookInput.showModal();
 }
+
