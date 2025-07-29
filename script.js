@@ -47,6 +47,8 @@ function displayBooks(){
         const disPages = document.createElement('p');
         disPages.textContent = `${book.pages} pages`;
 
+        const disList = document.createElement()
+
         bookCard.appendChild(disImage);
         bookCard.appendChild(disTitle);
         bookCard.appendChild(disAuthor);
