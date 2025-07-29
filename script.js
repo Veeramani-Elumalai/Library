@@ -59,5 +59,3 @@ function displayBooks(){
 function userInput(){
     bookInput.showModal();
 }
-
-console.log(title);
