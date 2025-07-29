@@ -99,3 +99,11 @@ nav a{
     width: 130px;
     height: 150px;
 }
+
+.books_container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 100px   ;
+    
+}
