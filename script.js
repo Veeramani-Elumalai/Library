@@ -28,7 +28,7 @@ formData.addEventListener('submit',function(event){
 //Functionality to create new book image
 
 function displayBooks(){
-    const container = document.getElementById('book_list');
+    const container = document.querySelector('#book_list');
     container.innerHTML = '';
 
     myLibrary.forEach(book =>{
@@ -63,6 +63,7 @@ function displayBooks(){
 
         const delButton = document.createElement('button');
         delButton.type = "button";
+        delButton.onclick = "deleteBook()";
         delButton.textContent = "Delete";
 
         bookCard.appendChild(disImage);
@@ -71,7 +72,7 @@ function displayBooks(){
         bookCard.appendChild(disPages);
         bookCard.appendChild(statusSelect); // Appending All elements into bookCard
         bookCard.appendChild(delButton);
-        
+
         container.appendChild(bookCard);  //Last Append
     }); 
 }
@@ -80,3 +81,6 @@ function userInput(){
     bookInput.showModal();
 }
 
+function deleteBook(){
+    myLibrary.pop(book);
+}
