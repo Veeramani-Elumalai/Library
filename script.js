@@ -61,12 +61,17 @@ function displayBooks(){
         statusSelect.appendChild(readedOption);
         statusSelect.appendChild(unreadedOption);  //Appending options into select
 
+        const delButton = document.createElement('button');
+        delButton.type = "button";
+        delButton.textContent = "Delete";
+
         bookCard.appendChild(disImage);
         bookCard.appendChild(disTitle);
         bookCard.appendChild(disAuthor);
         bookCard.appendChild(disPages);
         bookCard.appendChild(statusSelect); // Appending All elements into bookCard
-
+        bookCard.appendChild(delButton);
+        
         container.appendChild(bookCard);  //Last Append
     }); 
 }
