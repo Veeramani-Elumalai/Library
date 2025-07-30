@@ -31,7 +31,7 @@ function displayBooks(){
     const container = document.querySelector('#book_list');
     container.innerHTML = '';
 
-    myLibrary.forEach(book =>{
+    myLibrary.forEach((book, index) =>{
         const bookCard = document.createElement('div'); // One card per book
         bookCard.classList.add('book');
 
@@ -61,17 +61,20 @@ function displayBooks(){
         statusSelect.appendChild(readedOption);
         statusSelect.appendChild(unreadedOption);  //Appending options into select
 
-        const delButton = document.createElement('button');
-        delButton.type = "button";
-        delButton.onclick = "deleteBook()";
-        delButton.textContent = "Delete";
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+
+        deleteBtn.addEventListener('click', () => {
+        myLibrary.splice(index, 1);   // Remove book from array
+        displayBooks();              // Re-render the list
+        });
 
         bookCard.appendChild(disImage);
         bookCard.appendChild(disTitle);
         bookCard.appendChild(disAuthor);
         bookCard.appendChild(disPages);
         bookCard.appendChild(statusSelect); // Appending All elements into bookCard
-        bookCard.appendChild(delButton);
+        bookCard.appendChild(deleteBtn);
 
         container.appendChild(bookCard);  //Last Append
     }); 
@@ -81,6 +84,3 @@ function userInput(){
     bookInput.showModal();
 }
 
-function deleteBook(){
-    myLibrary.pop(book);
-}
