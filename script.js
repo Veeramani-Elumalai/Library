@@ -2,85 +2,91 @@ const myLibrary = [];
 const addBook = document.getElementById('add_book');
 const bookInput = document.getElementById('book_input');
 const formData = document.querySelector('form');
+const bookListContainer = document.querySelector('#book_list');
 
-function book(title,author,pages){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
+class Book { 
+    constructor(title, author, pages, read) { // Added 'read' parameter
+        this.title = title;
+        this.author = author;
+        this.pages = pages; 
+        this.read = read; // Assigned 'read' property
+    }
 }
 
-//User input function
-
-formData.addEventListener('submit',function(event){
+// User input function
+formData.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
+    const isRead = document.getElementById('is_read').checked; // Checkbox value
 
-    const newBook = new book(title, author, pages, true);
+    const newBook = new Book(title, author, pages, isRead); // Pass all four arguments
 
-    myLibrary.push(newBook)
+    myLibrary.push(newBook);
+    displayBooks(); // Call the display function
+    bookInput.close(); // Close the dialog after adding a book
+});
 
-    displayBooks();
-})
+// Function to display the books
+function displayBooks() {
+    bookListContainer.innerHTML = ''; // Clear the container first
 
-//Functionality to create new book image
-
-function displayBooks(){
-    const container = document.querySelector('#book_list');
-    container.innerHTML = '';
-
-    myLibrary.forEach((book, index) =>{
-        const bookCard = document.createElement('div'); // One card per book
+    myLibrary.forEach((book, index) => {
+        const bookCard = document.createElement('div');
         bookCard.classList.add('book');
 
-        const disImage = document.createElement("img"); //Creates new image
-        disImage.src = "imgs/ATOMIC_HABITS.png";
+        const disImage = document.createElement("img");
+        disImage.src = "imgs/ATOMIC_HABITS.png"; // Use a placeholder image
 
-        const disTitle = document.createElement('h4'); //Creates new H4 element
+        const disTitle = document.createElement('h4');
         disTitle.textContent = book.title;
-        disTitle.id = crypto.randomUUID();
 
-        const disAuthor = document.createElement('p'); //Creates new P element for author
+        const disAuthor = document.createElement('p');
         disAuthor.textContent = book.author;
 
-        const disPages = document.createElement('p'); //Creates new P element for pages
+        const disPages = document.createElement('p');
         disPages.textContent = `${book.pages} pages`;
 
-        const statusSelect = document.createElement('select'); //Creates new select element
-
-        const readedOption = document.createElement('option'); //Creates new option read
+        const statusSelect = document.createElement('select');
+        const readedOption = document.createElement('option');
         readedOption.value = 'readed';
         readedOption.textContent = 'Readed';
 
-        const unreadedOption = document.createElement('option'); //Creates new option read
+        const unreadedOption = document.createElement('option');
         unreadedOption.value = 'unreaded';
         unreadedOption.textContent = 'Unreaded';
 
         statusSelect.appendChild(readedOption);
-        statusSelect.appendChild(unreadedOption);  //Appending options into select
+        statusSelect.appendChild(unreadedOption);
+
+        if (book.read) {
+            readedOption.selected = true;
+        } else {
+            unreadedOption.selected = true;
+        }
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
 
         deleteBtn.addEventListener('click', () => {
-        myLibrary.splice(index, 1);   // Remove book from array
-        displayBooks();              // Re-render the list
+            myLibrary.splice(index, 1);
+            displayBooks();
         });
 
         bookCard.appendChild(disImage);
         bookCard.appendChild(disTitle);
         bookCard.appendChild(disAuthor);
         bookCard.appendChild(disPages);
-        bookCard.appendChild(statusSelect); // Appending All elements into bookCard
+        bookCard.appendChild(statusSelect);
         bookCard.appendChild(deleteBtn);
 
-        container.appendChild(bookCard);  //Last Append
-    }); 
+        bookListContainer.appendChild(bookCard);
+    });
 }
 
-function userInput(){
+function userInput() {
+    formData.reset(); // Reset the form fields before showing the dialog
     bookInput.showModal();
 }
-
