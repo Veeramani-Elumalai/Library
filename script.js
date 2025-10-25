@@ -1,8 +1,8 @@
 const myLibrary = [];
-const addBook = document.getElementById('add_book');
 const bookInput = document.getElementById('book_input');
 const formData = document.querySelector('form');
 const bookListContainer = document.querySelector('#book_list');
+const bookTitle = document.getElementById('title');
 
 class Book { 
     constructor(title, author, pages, read) { // Added 'read' parameter
@@ -13,6 +13,19 @@ class Book {
     }
 }
 
+bookTitle.addEventListener('input', (event) => {
+    const input = event.target;
+    input.setCustomValidity(""); // Clear previous custom validity
+
+    if (!input.validity.valid) {
+        return;
+    }
+
+    // Check if input is a number (which it shouldn't be for a book title)
+    if (!isNaN(input.value)) {
+        input.setCustomValidity("Book Title must be text");
+    }
+});
 // User input function
 formData.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -90,3 +103,5 @@ function userInput() {
     formData.reset(); // Reset the form fields before showing the dialog
     bookInput.showModal();
 }
+
+userInput();
